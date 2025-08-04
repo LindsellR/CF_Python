@@ -66,11 +66,6 @@ hashed = bcrypt.hashpw(password, bcrypt.gensalt())
 print(hashed)
 ```
 
-## Notes
-
-* You can use `exit()` or `Ctrl+D` to exit the Python REPL.
-* Make sure you're not copying `In [1]:` into the Python terminal — that's Jupyter Notebook syntax, not standard Python.
-
 ## Version Info
 
 This project uses:
