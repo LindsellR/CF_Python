@@ -73,7 +73,22 @@ This project uses:
 * Python: 3.13.5 (compatible with 3.8.7 used in CareerFoundry)
 * bcrypt: ^4.1.2
 
+## Data Structure
 
+I am using dictionaries to represent each recipe in the app because they allow me to store structured data as key-value pairs. This makes it easy to access or update individual parts of the recipe, such as the name, cooking time, or list of ingredients.
+
+Example of a single recipe:
+
+ >```python
+> {
+>     "recipe_name": "pancakes",
+>     "cooking_time": (15, 'minutes'),
+>     "ingredients": ["flour", "milk", "eggs", "sugar", "butter"]
+> }
+> ```
+
+
+I am storing each recipe dictionary within a parent dictionary named `all_recipes`. This allows easy access to each individual recipe and its associated data. It also helps maintain a clean and organized data structure.
 
 
 
