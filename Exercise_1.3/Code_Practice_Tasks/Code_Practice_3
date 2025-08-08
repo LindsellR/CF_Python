@@ -1,0 +1,15 @@
+
+#for loop
+for i in range(10, 60, 10):
+    print(i)
+
+print("And we're done!")
+
+#while loop
+number = 10
+
+while number <60:
+    print(number)
+    number += 10
+
+print("And we're done!")
