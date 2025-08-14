@@ -79,7 +79,17 @@ finally:
 print(f"Number of recipes loaded: {len(data['recipes_list'])}")
 print(f"Number of unique ingredients loaded: {len(data['all_ingredients'])}")
 
-n = int(input("How many recipes would you like to enter?: "))
+# Ask how many recipes to enter, ensuring valid integer input
+while True:
+    try:
+        n = int(input("How many recipes would you like to enter?: "))
+        if n > 0:
+            break
+        else:
+            print("Please enter a positive number.")
+    except ValueError:
+        print("Invalid input. Please enter an integer.")
+
 
 for i in range(n):
     recipe = take_recipe()
