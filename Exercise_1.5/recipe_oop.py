@@ -88,9 +88,9 @@ banana_smoothie = Recipe("Banana Smoothie", ["Banana", "Milk", "Sugar", "Ice Cub
 
 recipes_list = [tea, coffee, cake, banana_smoothie]
 
-# for recipe in recipes_list:
-#     print(recipe)
-#     print("-" * 40)
+for recipe in recipes_list:
+    print(recipe)
+    print("-" * 40)
 
 for ingredient in ["Water", "Sugar", "Banana"]:
     recipe_search(recipes_list, ingredient)
