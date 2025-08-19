@@ -109,6 +109,78 @@ def recipe_search(conn, cursor):
 
     return results
 
+def update_recipe(conn, cursor):
+    # Step 1: fetch all recipes
+    cursor.execute("SELECT id, name, ingredients, cooking_time, difficulty FROM recipes")
+    recipes = cursor.fetchall()
+
+    if not recipes:
+        print("No recipes found.")
+        return
+
+    print("\nAvailable Recipes:")
+    print("------------------------------------------------")
+    for recipe in recipes:
+        print(f"ID: {recipe[0]}, Name: {recipe[1]}, Cooking Time: {recipe[3]} mins, Difficulty: {recipe[4]}")
+        print(f"Ingredients: {recipe[2]}")
+        print("------------------------------------------------")
+
+    # Step 2: ask for recipe id
+    try:
+        recipe_id = int(input("\nEnter the ID of the recipe you want to update: "))
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+        return
+
+    # Step 3: choose column to update
+    print("\nWhich field do you want to update?")
+    print("1: Name")
+    print("2: Cooking Time")
+    print("3: Ingredients")
+    choice = input("Enter 1, 2, or 3: ")
+
+    if choice == "1":
+        new_value = input("Enter the new name: ")
+        query = f"UPDATE recipes SET name = %s WHERE id = %s"
+        cursor.execute(query, (new_value, recipe_id))
+
+    elif choice == "2":
+        try:
+            new_cooking_time = int(input("Enter the new cooking time (minutes): "))
+        except ValueError:
+            print("Cooking time must be a number.")
+            return
+
+        # fetch ingredients to recalculate difficulty
+        cursor.execute("SELECT ingredients FROM recipes WHERE id = %s", (recipe_id,))
+        ingredients_str = cursor.fetchone()[0]
+        ingredients = [i.strip() for i in ingredients_str.split(",")]
+
+        new_difficulty = calculate_difficulty(new_cooking_time, ingredients)
+
+        query = f"UPDATE recipes SET cooking_time = %s, difficulty = %s WHERE id = %s"
+        cursor.execute(query, (new_cooking_time, new_difficulty, recipe_id))
+
+    elif choice == "3":
+        new_ingredients = input("Enter new ingredients (comma separated): ").split(",")
+        new_ingredients = [i.strip() for i in new_ingredients]
+        ingredients_str = ", ".join(new_ingredients)
+
+        # fetch cooking_time to recalculate difficulty
+        cursor.execute("SELECT cooking_time FROM recipes WHERE id = %s", (recipe_id,))
+        cooking_time = cursor.fetchone()[0]
+
+        new_difficulty = calculate_difficulty(cooking_time, new_ingredients)
+
+        query = f"UPDATE recipes SET ingredients = %s, difficulty = %s WHERE id = %s"
+        cursor.execute(query, (ingredients_str, new_difficulty, recipe_id))
+
+    else:
+        print("Invalid choice.")
+        return
+
+    conn.commit()
+    print("Recipe updated successfully.")
 
 def main_menu(conn, cursor):
     while True:
