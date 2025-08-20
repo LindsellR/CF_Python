@@ -4,7 +4,7 @@ import mysql.connector
 def create_database():
     """Create the database and recipes table if they don't exist, then return connection and cursor."""
     conn = mysql.connector.connect(
-        host="localhost", user="root", password="Sfhs!td08"
+        host="localhost", user="root", password="password"
     )
     cursor = conn.cursor()
 
