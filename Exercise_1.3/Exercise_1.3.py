@@ -1,16 +1,20 @@
 recipe_list = []
 ingredients_list = []
 
+
 def take_recipe():
     name = str(input("Recipe name: "))
     cooking_time = int(input("Enter cooking time in minutes: "))
-    ingredients = list(input("Enter the ingredients, separated by a comma: ").split(","))
+    ingredients = list(
+        input("Enter the ingredients, separated by a comma: ").split(",")
+    )
     recipe = {
         "name": name,
         "cooking_time": cooking_time,
         "ingredients": ingredients,
     }
     return recipe
+
 
 n = int(input("How many recipes would you like to enter?: "))
 
@@ -31,7 +35,7 @@ for recipe in recipe_list:
 
     elif recipe["cooking_time"] >= 10 and len(recipe["ingredients"]) < 4:
         recipe["difficulty"] = "Intermediate"
-        
+
     elif recipe["cooking_time"] >= 10 and len(recipe["ingredients"]) >= 4:
         recipe["difficulty"] = "Hard"
 
@@ -41,7 +45,7 @@ for recipe in recipe_list:
     print("Ingredients: ", recipe["ingredients"])
     print("Difficulty: ", recipe["difficulty"])
 
-        
+
 def all_ingredients():
     print("Ingredients Available Across All Recipes")
     print("________________________________________")
@@ -49,5 +53,5 @@ def all_ingredients():
     for ingredient in ingredients_list:
         print(ingredient)
 
-all_ingredients()
 
+all_ingredients()

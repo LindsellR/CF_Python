@@ -13,7 +13,7 @@ class Recipe(object):
         return self._name
 
     def set_name(self, name):
-        self.name = name
+        self._name = name
 
     def get_ingredients(self):
         return self.ingredients
@@ -22,12 +22,12 @@ class Recipe(object):
         self.ingredients = ingredients
         self.update_all_ingredients()
         self.difficulty = None  # Reset difficulty if ingredients change
-
+ 
     def get_cooking_time(self):
         return self.cooking_time
 
     def set_cooking_time(self, cooking_time):
-        self.cookingtime = cooking_time
+        self.cooking_time = cooking_time
 
     def calculate_difficulty(self):
         # Calculates and updates recipe's difficulty

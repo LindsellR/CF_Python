@@ -88,7 +88,7 @@ Example of a single recipe:
 > ```
 
 
-I am storing each recipe dictionary within a parent dictionary named `all_recipes`. This allows easy access to each individual recipe and its associated data. It also helps maintain a clean and organized data structure.
+I am storing each recipe dictionary within a parent list named `recipe_list`. This allows easy access to each individual recipe and its associated data. It also helps maintain a clean and organized data structure.
 
 
 

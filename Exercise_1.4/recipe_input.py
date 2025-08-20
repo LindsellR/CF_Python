@@ -108,3 +108,4 @@ with open(filename, "wb") as file:
     pickle.dump(data, file)
 
 print(f"{n} recipes saved to {filename}")
+
