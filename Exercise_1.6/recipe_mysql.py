@@ -1,16 +1,22 @@
+from dotenv import load_dotenv
+import os
 import mysql.connector
 
+# Load .env file
+load_dotenv()
 
 def create_database():
     """Create the database and recipes table if they don't exist, then return connection and cursor."""
     conn = mysql.connector.connect(
-        host="localhost", user="root", password="password"
+        host=os.getenv("DB_HOST"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD")
     )
     cursor = conn.cursor()
 
     # Create and use database
-    cursor.execute("CREATE DATABASE IF NOT EXISTS task_database;")
-    cursor.execute("USE task_database;")
+    cursor.execute(f"CREATE DATABASE IF NOT EXISTS {os.getenv('DB_NAME')};")
+    cursor.execute(f"USE {os.getenv('DB_NAME')};")
 
     # Create recipes table
     cursor.execute(
@@ -22,7 +28,7 @@ def create_database():
             cooking_time INT,
             difficulty VARCHAR(20)
         )
-    """
+        """
     )
 
     conn.commit()
