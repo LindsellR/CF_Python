@@ -139,7 +139,6 @@ def create_recipe(session):
     # Add and commit
     session.add(recipe)
 
-
     try:
         session.commit()
         print(f"Recipe added successfully!")
