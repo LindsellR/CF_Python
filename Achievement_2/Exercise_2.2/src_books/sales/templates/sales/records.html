@@ -1,17 +1,35 @@
-<h1> Search for sales records</h1>
-<hr>
-<form action="" method="POST">
-   {% csrf_token %}
-   {{form}}
-   <button type="submit" >search</button>
-</form>
+{% extends "base.html" %}
+{% load static %}
 
-<br>
+{% block content %}
+<div class="sales-page">
+  <h1>Sales Records</h1>
 
-{% if sales_df %}
-   {{sales_df|safe}}
-   <br>
-   <img src="data:image/png;base64, {{chart|safe}}">
-{% else %}
-   <h3> no data</h3>
-{% endif %}
+  <!-- Sales search form -->
+  <form method="POST" class="sales-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Search</button>
+  </form>
+
+  <!-- Return button -->
+  <a href="{% url 'books:list' %}" class="btn-return">Return to Main Page</a>
+
+  <!-- Display chart if available -->
+  {% if chart %}
+  <div class="chart-container">
+    <img src="data:image/png;base64,{{ chart }}" alt="Sales Chart" />
+  </div>
+  {% endif %}
+
+  <!-- Display sales table -->
+  {% if sales_df %}
+    <h2>Sales Data</h2>
+    <div class="sales-table">
+      {{ sales_df|safe }}
+    </div>
+  {% elif sales_df == None and request.method == "POST" %}
+    <p>No sales records found for this book.</p>
+  {% endif %}
+</div>
+{% endblock %}

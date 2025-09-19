@@ -1,0 +1,541 @@
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa;
+    color: #333;
+}
+
+.site-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #3B3B58; /* deep indigo */
+    color: #FAF3E0; /* light cream */
+}
+
+.header-logo {
+    height: 60px;
+    width: 60px;
+    margin-right: 15px;
+    border-radius: 8px;
+}
+
+.site-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.navbar {
+    display: flex;
+    margin: 10px 0;
+}
+
+.navbar a {
+    justify-content: center;
+    margin: 0px auto;
+    text-decoration: none;
+    color: #3B3B58;
+    font-weight: bold;
+}
+.welcome{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.navbar a:hover {
+    color: #CBA135; /* gold */
+}
+
+/* Hero container for relative positioning */
+.home-hero-container {
+    position: relative;
+    width: 100%;
+    max-height: 500px;
+    overflow: hidden;
+}
+
+/* Make image full width */
+.home-hero-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Overlay container for text and button */
+.home-hero-overlay {
+    position: absolute;
+    top: 50%;       /* vertical center */
+    left: 50%;      /* horizontal center */
+    transform: translate(-50%, -50%); /* center properly */
+    text-align: center;
+    color: #FAF3E0;
+}
+
+/* Title styling */
+.home-hero-title {
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Login button styling */
+.btn-login {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #CBA135;
+    color: #3B3B58;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: #3B3B58;
+    color: #CBA135;
+    transform: translateY(-3px);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+
+/*Login view*/
+/* Make sure the content area centers items */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh; /* leave space for header/footer */
+  font-family: 'Cinzel', serif;
+}
+
+.books-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Login container */
+.login-container {
+  background: #FAF3E0; /* light cream */
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Title */
+.login-container h1 {
+  color: #3B3B58; /* deep indigo */
+  margin-bottom: 1rem;
+}
+
+/* Error message */
+.error {
+  color: crimson;
+  margin-bottom: 1rem;
+}
+
+/* Form fields */
+.login-form p {
+  margin: 0.8rem 0;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #CBA135; /* gold */
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Cinzel', serif;
+}
+
+/* Button */
+.login-form button {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 12px;
+  background: #3B3B58; /* deep indigo */
+  color: #FAF3E0; /* cream text */
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-form button:hover {
+  background: #CBA135; /* gold */
+  color: #3B3B58;
+}
+
+
+/* Table styling */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #3B3B58;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #3B3B58;
+    color: #FAF3E0;
+}
+
+/* Images */
+.home-image, .chart-container img {
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+/* Footer */
+.site-footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #3B3B58;
+    color: #FAF3E0;
+    margin-top: 40px;
+}
+
+/* Buttons */
+button {
+    padding: 10px 20px;
+    background-color: #3B3B58;
+    color: #FAF3E0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #CBA135;
+    color: #3B3B58;
+}
+
+/* Main page styling */
+/* Page Title */
+.page-title {
+  text-align: center;
+  color: #3B3B58;
+  margin: 1.5rem 0;
+}
+
+/* Table container prevents overflow */
+.books-table-container {
+    width: 95%;
+    max-width: 900px;
+    margin: 2rem auto;
+    overflow-x: auto; /* horizontal scroll if necessary */
+}
+
+/* Desktop table styling */
+.books-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Cinzel', serif;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.books-table th, .books-table td {
+    padding: 12px 16px;
+    text-align: left;
+    box-sizing: border-box; /* make padding count inside width */
+}
+
+.books-table th {
+    background-color: #3B3B58;
+    color: #FAF3E0;
+    font-size: 1.1rem;
+}
+
+.books-table tr:nth-child(even) {
+    background-color: #FAF3E0;
+}
+
+.books-table tr:hover {
+    background-color: #f0e8d0;
+}
+
+.book-table-link {
+    color: #3B3B58;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.book-table-link:hover {
+    text-decoration: underline;
+}
+
+.book-table-img {
+    width: 100px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+
+/* Title */
+.book-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  color: #3B3B58;
+  margin: 0;
+  text-decoration: none;
+}
+
+/* Links in header nav */
+.site-nav {
+  margin-left: auto;
+}
+
+.site-nav a {
+  margin-left: 1rem;
+  color: #FAF3E0;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.site-nav a:hover {
+  color: #CBA135;
+}
+
+/*Book Details view*/
+.book-detail-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 0 1rem; /* padding for small screens */
+}
+
+.book-detail-card {
+    display: flex;
+    flex-direction: column; /* stack vertically on mobile */
+    align-items: center;
+    background: #FAF3E0;
+    border: 2px solid #CBA135;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    padding: 2rem;
+    text-align: center;
+}
+
+.book-img-detail {
+    width: 80%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.book-detail-info p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    color: #3B3B58;
+}
+
+.btn-return {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 10px 20px;
+    background-color: #3B3B58;
+    color: #FAF3E0;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.btn-return:hover {
+    background-color: #CBA135;
+    color: #3B3B58;
+}
+
+/* Sales page container */
+/* Center the sales page content and card-like layout */
+.sales-page {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #FAF3E0;
+    border: 2px solid #CBA135;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+/* Form styling */
+.sales-form {
+    margin-bottom: 1.5rem;
+}
+
+.sales-form button {
+    padding: 10px 20px;
+    background-color: #3B3B58;
+    color: #FAF3E0;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.sales-form button:hover {
+    background-color: #CBA135;
+    color: #3B3B58;
+}
+
+/* Return button styling */
+.btn-return {
+    display: inline-block;
+    margin: 1rem 0 2rem 0;
+    padding: 10px 20px;
+    background-color: #3B3B58;
+    color: #FAF3E0;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.btn-return:hover {
+    background-color: #CBA135;
+    color: #3B3B58;
+}
+
+/* Chart styling */
+.chart-container {
+    margin: 2rem 0;
+}
+
+.chart-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Sales table */
+.sales-table {
+    overflow-x: auto;
+}
+
+.sales-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.sales-table th, .sales-table td {
+    border: 1px solid #3B3B58;
+    padding: 10px;
+    text-align: center;
+}
+
+.sales-table th {
+    background-color: #3B3B58;
+    color: #FAF3E0;
+}
+
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+    .books-table thead {
+        display: none; /* hide headings */
+    }
+
+    .books-table tr {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 1rem;
+        border: 2px solid #3B3B58;
+        border-radius: 8px;
+        padding: 0.5rem;
+        background-color: #FAF3E0;
+        box-sizing: border-box;
+    }
+
+    .books-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 48%; /* allows two items per row without overflow */
+        padding: 0.3rem 0.5rem;
+        box-sizing: border-box;
+    }
+
+    .book-title-cell {
+        font-weight: bold;
+        font-size: 1rem;
+        width: 60%; /* title gets more space */
+    }
+
+    .book-img-cell {
+        width: 35%;
+        text-align: right;
+    }
+
+    .book-table-img {
+        width: 80px;
+        height: auto;
+    }
+
+    .books-table-container {
+        width: 100%;
+        overflow-x: hidden; /* prevent horizontal scroll on mobile */
+        padding: 0 0.5rem; /* small padding for screen edges */
+    }
+}
+
+    /* Details card */
+    @media (max-width: 480px) {
+    .book-img-detail {
+        width: 100%;
+        max-width: 180px;
+    }
+
+    .book-detail-card {
+        padding: 1rem;
+    }
+
+    .book-detail-info p {
+        font-size: 0.95rem;
+    }
+
+    .btn-return {
+        padding: 8px 16px;
+        font-size: 0.95rem;
+    }
+}
+
+    /* Sales page */
+    .sales-page {
+        width: 90%;
+        padding: 1rem;
+    }
+
+    .chart-container img {
+        width: 100%;
+    }
+

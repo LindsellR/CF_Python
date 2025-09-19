@@ -17,11 +17,11 @@ def records(request):
    #check if the button is clicked
    if request.method =='POST':
        #read book_title and chart_type
-       book_title = request.POST.get('book_title')
+       book_title = request.POST.get('book_title', '').strip()
        chart_type = request.POST.get('chart_type')
 
        #apply filter to extract data
-       qs =Sale.objects.filter(book__name=book_title)
+       qs = Sale.objects.filter(book__name__icontains=book_title)
        if qs:      #if data found
            #convert the queryset values to pandas dataframe
            sales_df=pd.DataFrame(qs.values()) 

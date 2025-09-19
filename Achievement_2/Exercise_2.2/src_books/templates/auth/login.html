@@ -1,18 +1,17 @@
-<h1>Login</h1>          {% comment %} print heading {% endcomment %}
+{% extends "base.html" %}
 
-{% comment %} check for error message {% endcomment %}
-{% if error_message %}
-   {{error_message}}
-{% endif %}
+{% block content %}
+<div class="login-container">
+  <h1>Login</h1>
 
-{% comment %} print form {% endcomment %}
-<form action="" method="POST" >
-   {% comment %} add Django security token {% endcomment %}
-   {% csrf_token %}   
+  {% if error_message %}
+    <p class="error">{{ error_message }}</p>
+  {% endif %}
 
-   {% comment %} print form received from view  {% endcomment %}
-   {{form}}           
-
-   {% comment %} add button {% endcomment %}
-   <button type="submit" >Login</button>
-</form>
+  <form method="POST" class="login-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+  </form>
+</div>
+{% endblock %}

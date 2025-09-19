@@ -1,13 +1,17 @@
-<h2>Details: {{object.name}}</h2>
+{% extends "base.html" %}
 
-<b>Title: </b> {{object.name}}  <br>
-
-<b>Author: </b> {{object.author_name}} <br>
-
-<b>Genre: </b> {{object.genre}} <br>
-
-<b>Book Type: </b> {{object.book_type}} <br>
-
-<b>Price: </b> {{object.price}} <br>
-
-<img src="{{object.pic.url}}" width="200" height="300" />
+{% block content %}
+<div class="book-detail-container">
+    <div class="book-detail-card">
+        <img src="{{ object.pic.url }}" alt="{{ object.name }}" class="book-img-detail">
+        <div class="book-detail-info">
+            <p><b>Title:</b> {{ object.name }}</p>
+            <p><b>Author:</b> {{ object.author_name }}</p>
+            <p><b>Genre:</b> {{ object.genre }}</p>
+            <p><b>Book Type:</b> {{ object.book_type }}</p>
+            <p><b>Price:</b> ${{ object.price }}</p>
+        </div>
+        <a href="{% url 'books:list' %}" class="btn-return">Return to main page</a>
+    </div>
+</div>
+{% endblock %}

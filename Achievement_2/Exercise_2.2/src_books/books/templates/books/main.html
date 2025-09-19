@@ -1,25 +1,31 @@
-<h1>Books' list</h1> {% comment%} HTML tag for heading {% endcomment%}
-<br>
-<br>
+{% extends "base.html" %}
 
-<a href="{%url 'logout' %}"> Logout </a>
+{% block main_class %}books-main{% endblock %}
+{% block content %}
+<h1 class="page-title">Books List</h1>
 
-<br>
-<br>
+<div class="books-table-container">
+  <table class="books-table">
+    <thead>
+      <tr>
+        <th>Book Title</th>
+        <th>Book Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for object in object_list %}
+      <tr>
+        <td class="book-title-cell">
+          <a href="{{ object.get_absolute_url }}" class="book-table-link">{{ object.name }}</a>
+        </td>
+        <td class="book-img-cell">
+          <img src="{{ object.pic.url }}" alt="{{ object.name }}" class="book-table-img">
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 
-<table border="1" cellpadding="5" cellspacing="5"> {% comment%} start of table {% endcomment%}
-    <tr> {% comment%} the
-    <tr> tag adds a new row {% endcomment%}
-        <td>Books' Titles</td> {% comment%} the <td> tag adds a column {% endcomment%}
-        <td>Books' Images</td>
-    </tr>
-    {% for object in object_list %} {% comment%} go through each element of books’ list {% endcomment%}
-    <tr>
-        <td><a href="{{object.get_absolute_url}}"> {% comment%} add links to book names {% endcomment%}
-                {{object.name}}
-            </a></td>
-        <td><img src="{{object.pic.url}}" width="150" height="200" /></td>
 
-    </tr>
-    {% endfor %}
-</table>
+{% endblock %}

@@ -67,4 +67,6 @@ def get_chart(chart_type, data, **kwargs):
 
    #render the graph to file
    chart =get_graph() 
+
+   plt.close(fig)
    return chart
